@@ -27,7 +27,7 @@ function draw(){
 }
 
 function Check_Sketch(){
-    timer_counter = timer_counter + 1;
+    timer_counter = timer_counter++;
     document.getElementById("Timer_span").innerHTML = "Timer" + timer_counter;
     if (timer_counter >= 600){
         timer_counter = 0;
