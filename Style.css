@@ -70,8 +70,6 @@ body{
 }
 
 canvas{
-    border: 20px;
-    margin-bottom:300px !important;
     animation-name:Glow;
     animation-duration:10s;
     animation-iteration-count: infinite;
