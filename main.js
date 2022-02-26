@@ -28,8 +28,8 @@ function draw(){
 
 function Check_Sketch(){
     timer_counter = timer_counter++;
-    document.getElementById("Timer_span").innerHTML = "Timer" + timer_counter;
-    if (timer_counter >= 600){
+    document.getElementById("Timer_span").innerHTML = "Timer: " + timer_counter;
+    if (timer_counter >= 6000){
         timer_counter = 0;
         timer_counter = "conpleted  1";
     }
@@ -44,5 +44,5 @@ function Check_Sketch(){
 }
 
 function UpdateCanvas(){
-    canvas.background("red")
+    canvas.background("red");
 }
