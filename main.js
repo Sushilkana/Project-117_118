@@ -27,9 +27,9 @@ function draw(){
 }
 
 function Check_Sketch(){
-    timer_counter = timer_counter++;
+    timer_counter = timer_counter+1;
     document.getElementById("Timer_span").innerHTML = "Timer: " + timer_counter;
-    if (timer_counter >= 6000){
+    if (timer_counter >= "600"){
         timer_counter = 0;
         timer_counter = "conpleted  1";
     }
