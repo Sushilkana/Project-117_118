@@ -13,17 +13,39 @@ document.getElementById("p3").innerHTML = "Sketch to be drawn: " + Element_of_ar
 
 
 function preload(){
-
+    classifier = ml5.imageClassifier("DoodleNet");
 }
 
 function setup(){
     canvas = createCanvas(900,500);
     background("white");
     canvas.position(300,400);
+    canvas.mouseReleased(classifyCanvas);
+    synth = window.speechSynthesis;
 }
 
 function draw(){
+    strokeWeight(13);
+    stroke(0);
     Check_Sketch();
+    if (mouseIsPressed){
+        line(pmouseX,pmouseY,mouseX,mouseY);
+    }
+}
+
+function classifyCanvas(){
+    classifier.classify(canvas,gotResult);
+}
+
+function gotResult(error,result){
+    if (error){
+        console.error();
+    }
+    console.log(result);
+    document.getElementById("Ur_sketch").innerHTML = "Your Sketch: " + result[0].label;
+    document.getElementById("Confi").innerHTML = "Confidence: " +  Math.round(results[0].confidence*100) + "%";
+    utterThis = new SpeechSynthesisUtterance(results[0].label);
+    synth.speak(utterThis);
 }
 
 function Check_Sketch(){
